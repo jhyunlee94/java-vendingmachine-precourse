@@ -13,4 +13,18 @@ public enum Coin {
     }
 
     // 추가 기능 구현
+    public int getAmount() {
+        return amount;
+    }
+
+    public static Coin getAmountCoin(int amount) {
+        for (Coin coin : Coin.values()) {
+            // enum의 요소들을 순서대로 enum타입의 배열로 리턴
+            if(coin.getAmount() == amount) {
+                return coin;
+            }
+        }
+        return null;
+    }
+
 }

@@ -1,11 +1,14 @@
 package vendingmachine;
 
 import vendingmachine.controller.VendingMachineController;
+import vendingmachine.controller.port.VendingMachineService;
+import vendingmachine.service.VendingMachineServiceImpl;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        VendingMachineController vendingMachineController = new VendingMachineController();
+        VendingMachineService vendingMachineService = new VendingMachineServiceImpl();
+        VendingMachineController vendingMachineController = new VendingMachineController(vendingMachineService);
         vendingMachineController.run();
     }
 }
