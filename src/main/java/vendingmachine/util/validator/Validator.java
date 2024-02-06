@@ -29,6 +29,4 @@ public class Validator {
             throw new IllegalArgumentException("[ERROR] 돈은 10원으로 나누어 떨어져야 합니다.");
         }
     }
-
-
 }

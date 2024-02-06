@@ -22,6 +22,7 @@ public class CoinGenerator {
             result.add(Coin.getAmountCoin(randomCoin));
             price -= randomCoin;
         }
+//        System.out.println(result);
         return result;
     }
     private List<Integer> getNumbers() {
