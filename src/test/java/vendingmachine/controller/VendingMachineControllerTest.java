@@ -15,7 +15,7 @@ public class VendingMachineControllerTest {
         // when
         // then
         assertThatThrownBy(() -> {
-            Validator.isCoinsEmpty(input);
+            Validator.isEmpty(input);
         })
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 값을 입력해 주세요.");
@@ -29,7 +29,7 @@ public class VendingMachineControllerTest {
         // when
         // then
         assertThatThrownBy(() -> {
-            Validator.isCoinsNumber(input);
+            Validator.isNumber(input);
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 숫자를 알맞게 입력해 주세요.");
     }
@@ -42,7 +42,7 @@ public class VendingMachineControllerTest {
         // when
         // then
         assertThatThrownBy(() -> {
-            Validator.isCoinsPositive(input);
+            Validator.isPositive(input);
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 0이상의 수를 입력해 주세요.");
     }
@@ -55,7 +55,7 @@ public class VendingMachineControllerTest {
         // when
         // then
         assertThatThrownBy(() -> {
-            Validator.isCoinsDivisible(input);
+            Validator.isDivisible(input);
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 돈은 10원으로 나누어 떨어져야 합니다.");
     }

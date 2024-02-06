@@ -2,12 +2,16 @@ package vendingmachine.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import vendingmachine.controller.port.VendingMachineService;
+import vendingmachine.domain.Item;
 import vendingmachine.domain.Machine;
 import vendingmachine.util.generator.CoinGenerator;
 import vendingmachine.util.parser.Parser;
 import vendingmachine.view.OutputView;
 
+import java.util.List;
+
 import static vendingmachine.view.InputView.printMachineCoinsAmount;
+import static vendingmachine.view.InputView.printMachineItems;
 import static vendingmachine.view.OutputView.printMachineAmountMessage;
 import static vendingmachine.view.OutputView.printMachinePreMessage;
 
@@ -26,6 +30,23 @@ public class VendingMachineController {
 
     void init(Machine machine) {
         getMachineCoinsByManager(machine);
+        getMachineItemsByManager();
+    }
+
+
+
+    public void getMachineItemsByManager() {
+        printMachineItems();
+        inputMachineItems();
+    }
+
+    private List<Item> inputMachineItems() {
+        try {
+            return Parser.convertItemInput(Console.readLine());
+        } catch (IllegalArgumentException e) {
+            OutputView.printExceptionMessage(e.getMessage());
+            return inputMachineItems();
+        }
     }
 
     public void getMachineCoinsByManager(Machine machine) {
